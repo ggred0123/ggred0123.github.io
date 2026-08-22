@@ -10,7 +10,7 @@ export const profile = {
   lab: "BioImaging, Signal Processing & machine Learning Lab (BISPL)",
   labUrl: "https://bispl-website.github.io",
   advisor: "Jong Chul Ye",
-  location: "Seoul, Korea",
+  location: "Daejeon, Korea",
   email: "zeromin03@kaist.ac.kr",
   github: "https://github.com/ggred0123",
   // Fill these in when you have them, or delete the line to hide the link.
@@ -153,7 +153,7 @@ export const education: Entry[] = [
     period: "Sep. 2026 – Present",
     title: "M.S. in Artificial Intelligence",
     org: "KAIST, Kim Jaechul Graduate School of AI",
-    location: "Seoul, Korea",
+    location: "Daejeon, Korea",
     note: "Advisor: Jong Chul Ye · Concentration: 3D Vision and Robotics",
   },
   {
