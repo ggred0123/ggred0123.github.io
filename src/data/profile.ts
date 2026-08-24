@@ -42,11 +42,11 @@ export const news: NewsItem[] = [
   },
   {
     date: "Aug. 2026",
-    body: "Received my B.S. in Computer Science and Engineering from Korea University — early graduation in 3.5 years.",
+    body: "CRePE was accepted to the ECCV 2026 Workshop on 3D in the Era of World Models, in Malmö this September.",
   },
   {
-    date: "2026",
-    body: "CRePE: Curved Ray Expectation Positional Encoding for unified-camera-controlled video generation is on arXiv.",
+    date: "Aug. 2026",
+    body: "Received my B.S. in Computer Science and Engineering from Korea University — early graduation in 3.5 years.",
   },
   {
     date: "2026",
@@ -84,9 +84,12 @@ export const publications: Publication[] = [
     figure: { src: "/paper/crepe.webp", width: 480, height: 308 },
     authors: ["Seonghyun Jin", "Youngmin Kim", "Sunwoo Park", "Jong Chul Ye"],
     equalContribution: ["Seonghyun Jin", "Youngmin Kim", "Sunwoo Park"],
-    venue: "Under review",
+    venue: "ECCV Workshop on 3D in the Era of World Models",
     year: "2026",
-    links: [{ label: "arXiv:2605.12938", href: "https://arxiv.org/abs/2605.12938" }],
+    links: [
+      { label: "arXiv:2605.12938", href: "https://arxiv.org/abs/2605.12938" },
+      { label: "Workshop", href: "https://eccv2026-3d-world-models.github.io" },
+    ],
   },
   {
     title:
