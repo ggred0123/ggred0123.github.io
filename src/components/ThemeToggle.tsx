@@ -7,9 +7,9 @@ type Mode = "light" | "dark";
 function effectiveMode(): Mode {
   const attr = document.documentElement.getAttribute("data-theme");
   if (attr === "light" || attr === "dark") return attr;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  // no stored choice: the stylesheet's base is dark, so that is what is
+  // actually on screen — the OS preference no longer decides
+  return "dark";
 }
 
 export default function ThemeToggle() {
@@ -20,15 +20,6 @@ export default function ThemeToggle() {
   useEffect(() => {
     setMode(effectiveMode());
 
-    // follow the OS while the visitor has not made an explicit choice
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const onChange = () => {
-      if (!document.documentElement.hasAttribute("data-theme")) {
-        setMode(mq.matches ? "dark" : "light");
-      }
-    };
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
   }, []);
 
   const toggle = () => {

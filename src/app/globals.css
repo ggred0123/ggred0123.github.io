@@ -8,21 +8,25 @@
    an explicit choice, so the toggle wins in both directions.
    ============================================================ */
 :root {
-  color-scheme: light;
+  /* Dark is the default: the page opens at night regardless of the OS
+     setting, and light is only ever an explicit choice. Because the
+     default lives on bare :root rather than behind a media query, a
+     visitor with JS off still gets it. */
+  color-scheme: dark;
 
-  --bg: #f7f4ed;
-  --bg-subtle: #ece8dc;
-  --plate: #fffdf8;
-  --text: #201d17;
-  --text-muted: #645e50;
-  --text-faint: #948c7a;
-  --rule: #ddd6c6;
-  --rule-strong: #201d17;
-  --accent: #b0361c;
+  --bg: #171511;
+  --bg-subtle: #221f18;
+  --plate: #1e1b15;
+  --text: #eae4d6;
+  --text-muted: #a89f8c;
+  --text-faint: #7a7263;
+  --rule: #322e25;
+  --rule-strong: #d6cfbf;
+  --accent: #f57d4f;
 
-  /* Cursor light: a soft warm bloom, like lamplight on paper. */
-  --glow-core: color-mix(in srgb, var(--accent) 7%, transparent);
-  --glow-blend: normal;
+  /* Cursor light: at night the lamp is warm white and genuinely additive. */
+  --glow-core: rgba(255, 214, 170, 0.06);
+  --glow-blend: plus-lighter;
   --glow-core-r: 150px;
 
   --measure: 46rem;
@@ -38,40 +42,22 @@
     sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --bg: #171511;
-    --bg-subtle: #221f18;
-    --plate: #1e1b15;
-    --text: #eae4d6;
-    --text-muted: #a89f8c;
-    --text-faint: #7a7263;
-    --rule: #322e25;
-    --rule-strong: #d6cfbf;
-    --accent: #f57d4f;
+:root[data-theme="light"] {
+  color-scheme: light;
 
-    /* at night the lamp is warm white and genuinely additive */
-    --glow-core: rgba(255, 214, 170, 0.06);
-    --glow-blend: plus-lighter;
-  }
-}
+  --bg: #f7f4ed;
+  --bg-subtle: #ece8dc;
+  --plate: #fffdf8;
+  --text: #201d17;
+  --text-muted: #645e50;
+  --text-faint: #948c7a;
+  --rule: #ddd6c6;
+  --rule-strong: #201d17;
+  --accent: #b0361c;
 
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --bg: #171511;
-  --bg-subtle: #221f18;
-  --plate: #1e1b15;
-  --text: #eae4d6;
-  --text-muted: #a89f8c;
-  --text-faint: #7a7263;
-  --rule: #322e25;
-  --rule-strong: #d6cfbf;
-  --accent: #f57d4f;
-
-  /* at night the lamp is warm white and genuinely additive */
-  --glow-core: rgba(255, 214, 170, 0.06);
-  --glow-blend: plus-lighter;
+  /* on paper the bloom is a warm tint; additive would only wash out */
+  --glow-core: color-mix(in srgb, var(--accent) 7%, transparent);
+  --glow-blend: normal;
 }
 
 /* Only while the toggle is mid-flight: cross-fade every colour at once.
@@ -342,34 +328,15 @@ p {
 
 /* light is the base: offer the moon */
 .theme-toggle .icon-sun {
-  opacity: 0;
-  transform: rotate(-90deg) scale(0.5);
+  opacity: 1;
+  transform: none;
 }
 .theme-toggle .icon-moon {
-  opacity: 1;
-  transform: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .theme-toggle .icon-sun {
-    opacity: 1;
-    transform: none;
-  }
-  :root:not([data-theme="light"]) .theme-toggle .icon-moon {
-    opacity: 0;
-    transform: rotate(90deg) scale(0.5);
-  }
-}
-
-/* explicit choice always wins over the media query above */
-:root[data-theme="dark"] .theme-toggle .icon-sun {
-  opacity: 1;
-  transform: none;
-}
-:root[data-theme="dark"] .theme-toggle .icon-moon {
   opacity: 0;
   transform: rotate(90deg) scale(0.5);
 }
+
+/* the only override needed now: on paper, offer the moon */
 :root[data-theme="light"] .theme-toggle .icon-sun {
   opacity: 0;
   transform: rotate(-90deg) scale(0.5);
@@ -629,12 +596,7 @@ p {
 
 /* a full-white plate is harsh against the night theme; settle it
    slightly and bring it back on hover */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .pub-fig img {
-    opacity: 0.88;
-  }
-}
-:root[data-theme="dark"] .pub-fig img {
+:root .pub-fig img {
   opacity: 0.88;
 }
 :root[data-theme="light"] .pub-fig img {
