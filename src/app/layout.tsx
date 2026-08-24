@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Newsreader } from "next/font/google";
 import { profile } from "@/data/profile";
 import "./globals.css";
 
@@ -9,26 +9,16 @@ export const siteUrl = "https://ggred0123.github.io";
 /**
  * Self-hosted at build time by next/font, so the static export ships the
  * font files itself — no runtime request to Google.
- *  - Inter: body & UI
- *  - Instrument Serif (italic): display accents — name, venues, watermark
- *  - JetBrains Mono: metadata — dates, labels, chips
+ *
+ * Newsreader is the whole typographic voice: its optical-size axis lets
+ * the same family set the nameplate, the headings and the body text.
+ * Small labels fall back to the system grotesque straight from CSS.
  */
-const sans = Inter({
+const serif = Newsreader({
   subsets: ["latin"],
-  variable: "--font-sans-var",
-  display: "swap",
-});
-const serif = Instrument_Serif({
-  weight: "400",
   style: ["normal", "italic"],
-  subsets: ["latin"],
+  axes: ["opsz"],
   variable: "--font-serif-var",
-  display: "swap",
-});
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono-var",
   display: "swap",
 });
 
@@ -58,11 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${sans.variable} ${serif.variable} ${mono.variable}`}
-    >
+    <html lang="en" suppressHydrationWarning className={serif.variable}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBoot }} />
       </head>

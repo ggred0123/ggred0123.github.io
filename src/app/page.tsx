@@ -9,13 +9,6 @@ import {
 } from "@/data/profile";
 import Interactions from "@/components/Interactions";
 import ThemeToggle from "@/components/ThemeToggle";
-import {
-  MailIcon,
-  GithubIcon,
-  ScholarIcon,
-  FileIcon,
-  LinkedinIcon,
-} from "@/components/Icons";
 
 const NAV = [
   ["About", "#about"],
@@ -25,14 +18,17 @@ const NAV = [
   ["Education", "#education"],
 ];
 
-/* Split on the last space: the nav monogram still sets the surname initial
-   apart, even though the hero now renders the full name in one weight. */
-const nameParts = (() => {
-  const i = profile.name.lastIndexOf(" ");
-  return i === -1
-    ? { first: profile.name, last: "" }
-    : { first: profile.name.slice(0, i), last: profile.name.slice(i + 1) };
-})();
+/* The dateline wants the lab's short name; take the acronym from the
+   parenthetical if there is one. */
+const labShort = profile.lab.match(/\(([^)]+)\)/)?.[1] ?? profile.lab;
+
+function Sep() {
+  return (
+    <span className="sep" aria-hidden>
+      ·
+    </span>
+  );
+}
 
 function Authors({ pub }: { pub: Publication }) {
   const eq = pub.equalContribution ?? [];
@@ -52,9 +48,10 @@ function Authors({ pub }: { pub: Publication }) {
 function SectionTitle({ no, children }: { no: string; children: string }) {
   return (
     <h2 className="section-title">
-      <span className="section-no">{no}</span>
+      <span className="section-no" aria-hidden>
+        {no}
+      </span>
       {children}
-      <span className="section-rule" aria-hidden />
     </h2>
   );
 }
@@ -85,26 +82,15 @@ export default function Home() {
     <>
       <Interactions />
 
-      {/* fixed background: aurora glow + dot grid + film grain */}
+      {/* fixed backdrop carrying the cursor light */}
       <div className="atmosphere" aria-hidden>
-        <div className="aurora aurora-a" />
-        <div className="aurora aurora-b" />
-        <div className="grid-layer" />
-        <div className="noise-layer" />
         <div className="cursor-glow" />
       </div>
 
       <nav className="nav">
         <div className="nav-inner">
           <a className="nav-name" href="#top">
-            {nameParts.last ? (
-              <>
-                {nameParts.first[0]}
-                <em>{nameParts.last[0]}</em>
-              </>
-            ) : (
-              profile.name
-            )}
+            {profile.name}
           </a>
           {NAV.map(([label, href]) => (
             <a key={href} href={href}>
@@ -117,97 +103,77 @@ export default function Home() {
       </nav>
 
       <main className="wrap" id="top">
-        {/* ---------- hero ---------- */}
-        <header className="hero">
-          <div className="hero-body">
-            <h1 className="hero-name">{profile.name}</h1>
-            <p className="hero-role">
-              {profile.role}
-              <br />
-              <strong>{profile.affiliation}</strong>
-              <br />
-              <a
-                className="lab-link"
-                href={profile.labUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {profile.lab}
-              </a>
-              <br />
-              Advised by <strong>Prof. {profile.advisor}</strong>
-            </p>
+        {/* ---------- masthead ---------- */}
+        <header className="masthead">
+          <p className="mast-kicker">{profile.affiliation}</p>
+          <h1 className="mast-name">{profile.name}</h1>
 
-            <div className="links">
-              <a className="link-chip" href={"mailto:" + profile.email}>
-                <MailIcon />
-                {profile.email}
-              </a>
-              <a
-                className="link-chip"
-                href={profile.github}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <GithubIcon />
-                GitHub
-              </a>
-              {profile.scholar && (
-                <a
-                  className="link-chip"
-                  href={profile.scholar}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <ScholarIcon />
-                  Scholar
-                </a>
-              )}
-              {profile.linkedin && (
-                <a
-                  className="link-chip"
-                  href={profile.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <LinkedinIcon />
-                  LinkedIn
-                </a>
-              )}
-              <a className="link-chip" href={profile.cv}>
-                <FileIcon />
-                CV (PDF)
-              </a>
-            </div>
+          <div className="mast-dateline">
+            <span>{profile.role}</span>
+            <Sep />
+            <a
+              className="lab-link"
+              href={profile.labUrl}
+              target="_blank"
+              rel="noreferrer"
+              title={profile.lab}
+            >
+              {labShort}
+            </a>
+            <Sep />
+            <span>Advised by Prof. {profile.advisor}</span>
           </div>
 
-          <figure className="hero-figure">
-            <span className="hero-photo-box">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                className="hero-photo"
-                src={profile.photo}
-                alt={profile.name}
-                width={168}
-                height={168}
-              />
-            </span>
-          </figure>
+          <div className="mast-links">
+            <a href={"mailto:" + profile.email}>Email</a>
+            <Sep />
+            <a href={profile.github} target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+            {profile.scholar && (
+              <>
+                <Sep />
+                <a href={profile.scholar} target="_blank" rel="noreferrer">
+                  Scholar
+                </a>
+              </>
+            )}
+            {profile.linkedin && (
+              <>
+                <Sep />
+                <a href={profile.linkedin} target="_blank" rel="noreferrer">
+                  LinkedIn
+                </a>
+              </>
+            )}
+            <Sep />
+            <a href={profile.cv}>CV (PDF)</a>
+          </div>
         </header>
 
         {/* ---------- about ---------- */}
         <section className="section" id="about">
           <SectionTitle no="01">About</SectionTitle>
+          <figure className="about-figure">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="about-photo"
+              src={profile.photo}
+              alt={profile.name}
+              width={425}
+              height={567}
+            />
+            <figcaption className="about-caption">
+              {profile.location}
+            </figcaption>
+          </figure>
           {profile.bio.map((para) => (
             <p key={para.slice(0, 24)}>{para}</p>
           ))}
-          <div className="tags">
-            {profile.interests.map((t) => (
-              <span className="tag" key={t}>
-                {t}
-              </span>
-            ))}
-          </div>
+          <p className="interests">
+            <span className="interests-label">Interests</span>
+            {profile.interests.join(" · ")}
+          </p>
         </section>
 
         {/* ---------- news ---------- */}
@@ -232,7 +198,7 @@ export default function Home() {
                 <div className="pub-fig">
                   {p.figure &&
                     (p.links?.[0] ? (
-                      // convenience click target only — the labelled arXiv chip
+                      // convenience click target only — the labelled arXiv link
                       // below is the one keyboard and screen-reader users get,
                       // so this duplicate is kept out of the tab order
                       <a
@@ -264,18 +230,16 @@ export default function Home() {
                       />
                     ))}
                 </div>
-                <div>
+                <div className="pub-body">
                   <div className="pub-title">{p.title}</div>
                   <Authors pub={p} />
                   <div className="pub-venue">
-                    <em>{p.venue}</em>
-                    <span className="pub-year">{p.year}</span>
+                    <em>{p.venue}</em>, {p.year}
                   </div>
                   {p.links && p.links.length > 0 && (
                     <div className="pub-links">
                       {p.links.map((l) => (
                         <a
-                          className="pub-link"
                           key={l.href}
                           href={l.href}
                           target="_blank"
@@ -309,13 +273,17 @@ export default function Home() {
           <EntryList items={education} />
         </section>
 
+        {/* ---------- colophon ---------- */}
         <footer className="footer">
-          <div className="footer-row">
-            <span>
-              © {profile.name} · {profile.location}
-            </span>
-            <span>Built with Next.js · Hosted on GitHub Pages</span>
+          <div className="footer-orn" aria-hidden>
+            · · ·
           </div>
+          <p className="footer-line">
+            © {profile.name} · {profile.location}
+          </p>
+          <p className="footer-colophon">
+            Set in Newsreader · Built with Next.js · Hosted on GitHub Pages
+          </p>
         </footer>
       </main>
     </>
