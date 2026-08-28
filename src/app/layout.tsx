@@ -1,58 +1,46 @@
 import type { Metadata } from "next";
-import { Newsreader } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { profile } from "@/data/profile";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 import "./globals.css";
 
 // Change this if you attach a custom domain.
 export const siteUrl = "https://ggred0123.github.io";
 
-/**
- * Self-hosted at build time by next/font, so the static export ships the
- * font files itself — no runtime request to Google.
- *
- * Newsreader is the whole typographic voice: its optical-size axis lets
- * the same family set the nameplate, the headings and the body text.
- * Small labels fall back to the system grotesque straight from CSS.
- */
-const serif = Newsreader({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  axes: ["opsz"],
-  variable: "--font-serif-var",
-  display: "swap",
-});
+// Self-hosted at build time by next/font — the static export ships the font files.
+const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-display", display: "swap" });
+const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap", weight: ["400", "600"] });
 
 const description =
-  "M.S. student at KAIST Kim Jaechul Graduate School of AI (BISPL), advised by Jong Chul Ye. Research on 3D vision, robotics, vision-language-action models, and diffusion models.";
+  "Youngmin Kim is an M.S. student at KAIST AI (BISPL, advised by Jong Chul Ye) working on 3D vision, generative modeling, robotics and medical imaging.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: profile.name + " — " + profile.affiliation,
+  title: `${profile.name} | ${profile.role}`,
   description,
-  openGraph: {
-    title: profile.name,
-    description,
-    type: "profile",
-    images: [profile.photo],
-  },
+  openGraph: { title: profile.name, description, type: "profile", images: [profile.photo] },
   twitter: { card: "summary", title: profile.name, description },
 };
 
-// Applies the saved theme before first paint, so a visitor who chose light
-// never sees a dark flash (and vice versa).
-const themeBoot = `(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t)}}catch(e){}})();`;
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={serif.variable}>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeBoot }} />
-      </head>
-      <body>{children}</body>
+    <html lang="en" className={`${display.variable} ${mono.variable}`}>
+      <body>
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
+        <SiteHeader />
+        <main id="main-content">{children}</main>
+        <SiteFooter />
+        {profile.goatcounter && (
+          <script
+            data-goatcounter={`https://${profile.goatcounter}.goatcounter.com/count`}
+            async
+            src="https://gc.zgo.at/count.js"
+          />
+        )}
+      </body>
     </html>
   );
 }
