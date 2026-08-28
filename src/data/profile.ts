@@ -20,7 +20,7 @@ export const profile = {
   cv: "/cv_YoungminKim.pdf",
   photo: "/face.jpg",
   bio: [
-    "I am a first-year M.S. student at the Kim Jaechul Graduate School of AI, KAIST, advised by Prof. Jong Chul Ye at BISPL. I received my B.S. in Computer Science and Engineering from Korea University in August 2026, graduating early in 3.5 years.",
+    "I am a first-year M.S. student at the Kim Jaechul Graduate School of AI, KAIST, advised by Prof. Jong Chul Ye at BISPL. I received my B.S. in Computer Science and Engineering from Korea University in August 2026.",
     "My research focuses on 3D vision and generative modeling, particularly their applications to robotics and embodied AI. I am broadly interested in geometry-aware visual representations and learning-based approaches to spatial perception and interaction.",],
   interests: [
     "3D Vision",
