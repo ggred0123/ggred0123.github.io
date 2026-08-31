@@ -3,6 +3,7 @@ import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { profile } from "@/data/profile";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import ScrollReveal from "@/components/ScrollReveal";
 import "./globals.css";
 
 // Change this if you attach a custom domain.
@@ -25,11 +26,24 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${mono.variable}`}>
+    // The inline script below adds `js-reveal` to <html> before React
+    // hydrates, so this element's attributes legitimately differ from the
+    // server HTML. Scoped to this element only.
+    <html lang="en" className={`${display.variable} ${mono.variable}`} suppressHydrationWarning>
       <body>
+        {/* Arms the scroll-reveal hidden state before first paint, and only
+            when the viewer welcomes motion and the browser can observe. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches)" +
+              "document.documentElement.classList.add('js-reveal')",
+          }}
+        />
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
+        <ScrollReveal />
         <SiteHeader />
         <main id="main-content">{children}</main>
         <SiteFooter />
