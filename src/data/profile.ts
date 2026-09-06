@@ -238,7 +238,7 @@ export const experience: Entry[] = [
     org: "Advisor: Prof. Jong Chul Ye",
     location: "Seoul, Korea",
     chip: "Research",
-    bullets: ["3D vision and generative modeling for robotics and embodied AI."],
+    bullets: ["3D vision and generative modeling for robotics."],
   },
   {
     period: "Jun. 2025 – Aug. 2026",
@@ -246,11 +246,7 @@ export const experience: Entry[] = [
     org: "Advisor: Prof. Jong Chul Ye",
     location: "Seoul, Korea",
     chip: "Research",
-    bullets: [
-      "Co-led CRePE, a curved-ray positional encoding for unified-camera-controlled video generation (ECCV 2026 workshop).",
-      "Developed diffusion and Schrödinger-bridge methods for ultra-low-field MRI enhancement (MICCAI ULF-EnC).",
-      "Contributed to a medical foundation model effort.",
-    ],
+    bullets: ["Camera-controlled video generation, ultra-low-field MRI enhancement, medical foundation models."],
   },
   {
     period: "Jun. 2024 – Jun. 2025",
@@ -258,7 +254,7 @@ export const experience: Entry[] = [
     org: "Advisor: Prof. Heonchang Yu",
     location: "Seoul, Korea",
     chip: "Research",
-    bullets: ["Analyzed execution time and network latency of Kubernetes scheduler algorithms (KCC 2025)."],
+    bullets: ["Kubernetes scheduler performance analysis (KCC 2025)."],
   },
 ];
 
