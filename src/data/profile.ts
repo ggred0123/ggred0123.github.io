@@ -47,7 +47,7 @@ export const profile = {
 export const stats = [
   { value: "5", label: "Papers and preprints" },
   { value: "4", label: "First or co-first author works" },
-  { value: "1", label: "ECCV 2026 workshop paper" },
+  { value: "1", label: "NeurIPS 2026 poster" },
   { value: "4×", label: "Semester honors at Korea University" },
 ];
 
@@ -70,13 +70,13 @@ export const pillars = [
   },
 ];
 
-export type Highlight = { tag: string; tone: "eccv" | "cvpr" | "award" | "iclr"; title: string; body: string };
+export type Highlight = { tag: string; tone: "neurips" | "eccv" | "cvpr" | "award" | "iclr"; title: string; body: string };
 
 export const highlights: Highlight[] = [
   {
-    tag: "ECCV 2026 W",
-    tone: "eccv",
-    title: "CRePE accepted at the 3D World Models Workshop",
+    tag: "NeurIPS 2026",
+    tone: "neurips",
+    title: "CRePE accepted as a NeurIPS 2026 poster",
     body: "Curved Ray Expectation Positional Encoding for unified-camera-controlled video generation.",
   },
   {
@@ -102,6 +102,7 @@ export const highlights: Highlight[] = [
 export type NewsItem = { date: string; body: string };
 
 export const news: NewsItem[] = [
+  { date: "Sep. 2026", body: "CRePE was accepted as a poster at NeurIPS 2026." },
   { date: "Sep. 2026", body: "Starting my M.S. at the Kim Jaechul Graduate School of AI, KAIST, joining BISPL under Prof. Jong Chul Ye." },
   { date: "Aug. 2026", body: "CRePE was accepted to the ECCV 2026 Workshop on 3D in the Era of World Models, in Malmö this September." },
   { date: "Aug. 2026", body: "Received my B.S. in Computer Science and Engineering from Korea University — early graduation in 3.5 years." },
@@ -134,16 +135,16 @@ export const publications: Publication[] = [
     figure: { src: "/paper/crepe.webp", width: 480, height: 308 },
     authors: ["Seonghyun Jin", "Youngmin Kim", "Sunwoo Park", "Jong Chul Ye"],
     equalContribution: ["Seonghyun Jin", "Youngmin Kim", "Sunwoo Park"],
-    venue: "ECCV 2026 Workshop on 3D in the Era of World Models",
-    venueShort: "ECCV 2026 W",
+    venue: "NeurIPS 2026 (Poster)",
+    venueShort: "NeurIPS 2026",
     year: "2026",
     area: "Video Generation",
     summary:
-      "A positional encoding that models curved rays so a single video diffusion model can be controlled by pinhole, fisheye and panoramic cameras alike.",
+      "A positional encoding that models curved rays so a single video diffusion model can be controlled by pinhole, fisheye and panoramic cameras alike. An earlier version appeared at the ECCV 2026 Workshop on 3D in the Era of World Models.",
     tags: ["Camera Control", "Positional Encoding", "World Models"],
     links: [
       { label: "arXiv", href: "https://arxiv.org/abs/2605.12938" },
-      { label: "Workshop", href: "https://eccv2026-3d-world-models.github.io" },
+      { label: "ECCV Workshop", href: "https://eccv2026-3d-world-models.github.io" },
     ],
     featured: true,
   },
