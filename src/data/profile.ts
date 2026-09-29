@@ -142,7 +142,10 @@ export const publications: Publication[] = [
     summary:
       "Dynamic Predictive Planning treats manipulation of moving targets as counterfactual planning: the world-action model's own rollout estimates when an interaction will happen and where the target will be, and a counterfactual observation lets the policy invoke a skill it already has instead of improvising a recovery. Runs in real time on a single consumer GPU with no training on dynamic data.",
     tags: ["World-Action Models", "Dynamic Manipulation", "Counterfactual Planning"],
-    links: [{ label: "arXiv", href: "https://arxiv.org/abs/2609.33172" }],
+    links: [
+      { label: "arXiv", href: "https://arxiv.org/abs/2609.33172" },
+      { label: "Project page", href: "https://methoder00.github.io/DPP/" },
+    ],
   },
   {
     title: "Don't Throw Away the Tail: Action Upcycling for Policy Acceleration",
@@ -307,6 +310,15 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    period: "Jul. 2026 – Present",
+    title: "DPP — Dynamic Manipulation with World-Action Models",
+    org: "BISPL, KAIST",
+    area: "Robotics",
+    body: "Counterfactual planning for moving targets: the world-action model's own rollout predicts when contact happens and where the target will be, so the policy reuses a skill it already has. Real time on one consumer GPU.",
+    link: { label: "Project page", href: "https://methoder00.github.io/DPP/" },
+    featured: true,
+  },
   {
     period: "Jun. 2026 – Aug. 2026",
     title: "CRePE — Unified-Camera-Controlled Video Generation",
