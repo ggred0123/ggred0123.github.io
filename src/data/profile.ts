@@ -146,6 +146,30 @@ export const publications: Publication[] = [
     featured: true,
   },
   {
+    title: "Don't Throw Away the Tail: Action Upcycling for Policy Acceleration",
+    authors: ["Taesung Kwon", "Jangho Park", "Sunwoo Park", "Youngmin Kim", "Seonghyun Jin", "Youngjun Jun", "Kyumin Choi", "Jong Chul Ye"],
+    venue: "arXiv preprint (under review)",
+    venueShort: "arXiv 2026",
+    year: "2026",
+    area: "Robotics",
+    summary:
+      "A training-free way to stretch a chunked policy's execution horizon by reusing the actions it would otherwise discard, extending it only while action velocity stays smooth. Cuts policy calls by 1.2-1.7x with no loss in success rate across several VLAs and a world-action model.",
+    tags: ["VLA", "Policy Acceleration", "Action Chunking"],
+    links: [{ label: "arXiv", href: "https://arxiv.org/abs/2609.34911" }],
+  },
+  {
+    title: "Adjoint Guidance Flow: Amortized Critic Guidance for VLA Policies",
+    authors: ["Jeongsol Kim", "Youngjun Jun", "Kyumin Choi", "Youngmin Kim", "Seonghyun Jin", "Sunwoo Park", "Jangho Park", "Kwanyoung Kim", "Jong Chul Ye"],
+    venue: "arXiv preprint (under review)",
+    venueShort: "arXiv 2026",
+    year: "2026",
+    area: "Robotics",
+    summary:
+      "Casts critic-guided flow generation as optimal control and regresses a lightweight guidance network onto the resulting costate, so a frozen VLA gains trajectory-aware critic guidance at one extra forward pass per step - 3.6x faster than QGF with 7x fewer parameters.",
+    tags: ["VLA", "Flow Models", "Critic Guidance"],
+    links: [{ label: "arXiv", href: "https://arxiv.org/abs/2609.34944" }],
+  },
+  {
     title: "CRePE: Curved Ray Expectation Positional Encoding for Unified-Camera-Controlled Video Generation",
     figure: { src: "/paper/crepe.webp", width: 480, height: 308 },
     authors: ["Seonghyun Jin", "Youngmin Kim", "Sunwoo Park", "Jong Chul Ye"],
@@ -177,30 +201,6 @@ export const publications: Publication[] = [
     tags: ["Schrödinger Bridge", "Distillation", "Unpaired Translation"],
     links: [{ label: "arXiv", href: "https://arxiv.org/abs/2603.03769" }],
     featured: true,
-  },
-  {
-    title: "Don't Throw Away the Tail: Action Upcycling for Policy Acceleration",
-    authors: ["Taesung Kwon", "Jangho Park", "Sunwoo Park", "Youngmin Kim", "Seonghyun Jin", "Youngjun Jun", "Kyumin Choi", "Jong Chul Ye"],
-    venue: "arXiv preprint (under review)",
-    venueShort: "arXiv 2026",
-    year: "2026",
-    area: "Robotics",
-    summary:
-      "A training-free way to stretch a chunked policy's execution horizon by reusing the actions it would otherwise discard, extending it only while action velocity stays smooth. Cuts policy calls by 1.2-1.7x with no loss in success rate across several VLAs and a world-action model.",
-    tags: ["VLA", "Policy Acceleration", "Action Chunking"],
-    links: [{ label: "arXiv", href: "https://arxiv.org/abs/2609.34911" }],
-  },
-  {
-    title: "Adjoint Guidance Flow: Amortized Critic Guidance for VLA Policies",
-    authors: ["Jeongsol Kim", "Youngjun Jun", "Kyumin Choi", "Youngmin Kim", "Seonghyun Jin", "Sunwoo Park", "Jangho Park", "Kwanyoung Kim", "Jong Chul Ye"],
-    venue: "arXiv preprint (under review)",
-    venueShort: "arXiv 2026",
-    year: "2026",
-    area: "Robotics",
-    summary:
-      "Casts critic-guided flow generation as optimal control and regresses a lightweight guidance network onto the resulting costate, so a frozen VLA gains trajectory-aware critic guidance at one extra forward pass per step - 3.6x faster than QGF with 7x fewer parameters.",
-    tags: ["VLA", "Flow Models", "Critic Guidance"],
-    links: [{ label: "arXiv", href: "https://arxiv.org/abs/2609.34944" }],
   },
   {
     title: "Ultra-Low-Field Brain MRI Enhancement using Resfusion and Residual Artifact Suppression Network",
