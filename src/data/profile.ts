@@ -124,7 +124,6 @@ export type Publication = {
   summary: string;
   tags: string[];
   links?: { label: string; href: string }[];
-  featured?: boolean;
 };
 
 /** Author name that gets bolded in the list. */
@@ -133,6 +132,7 @@ export const ME = "Youngmin Kim";
 export const publications: Publication[] = [
   {
     title: "Dynamic Manipulation with World-Action Models via Counterfactual Planning",
+    figure: { src: "/paper/dynamic.webp", width: 480, height: 266 },
     authors: ["Sunwoo Park", "Wonbin Lee", "Seonghyun Jin", "Youngmin Kim", "Jangho Park", "Jong Chul Ye"],
     equalContribution: ["Sunwoo Park", "Wonbin Lee", "Seonghyun Jin", "Youngmin Kim"],
     venue: "arXiv preprint (under review)",
@@ -143,10 +143,10 @@ export const publications: Publication[] = [
       "Dynamic Predictive Planning treats manipulation of moving targets as counterfactual planning: the world-action model's own rollout estimates when an interaction will happen and where the target will be, and a counterfactual observation lets the policy invoke a skill it already has instead of improvising a recovery. Runs in real time on a single consumer GPU with no training on dynamic data.",
     tags: ["World-Action Models", "Dynamic Manipulation", "Counterfactual Planning"],
     links: [{ label: "arXiv", href: "https://arxiv.org/abs/2609.33172" }],
-    featured: true,
   },
   {
     title: "Don't Throw Away the Tail: Action Upcycling for Policy Acceleration",
+    figure: { src: "/paper/upcycling.webp", width: 480, height: 246 },
     authors: ["Taesung Kwon", "Jangho Park", "Sunwoo Park", "Youngmin Kim", "Seonghyun Jin", "Youngjun Jun", "Kyumin Choi", "Jong Chul Ye"],
     venue: "arXiv preprint (under review)",
     venueShort: "arXiv 2026",
@@ -159,6 +159,7 @@ export const publications: Publication[] = [
   },
   {
     title: "Adjoint Guidance Flow: Amortized Critic Guidance for VLA Policies",
+    figure: { src: "/paper/adjoint.webp", width: 480, height: 260 },
     authors: ["Jeongsol Kim", "Youngjun Jun", "Kyumin Choi", "Youngmin Kim", "Seonghyun Jin", "Sunwoo Park", "Jangho Park", "Kwanyoung Kim", "Jong Chul Ye"],
     venue: "arXiv preprint (under review)",
     venueShort: "arXiv 2026",
@@ -185,7 +186,6 @@ export const publications: Publication[] = [
       { label: "arXiv", href: "https://arxiv.org/abs/2605.12938" },
       { label: "ECCV Workshop", href: "https://eccv2026-3d-world-models.github.io" },
     ],
-    featured: true,
   },
   {
     title: "DMD-augmented Unpaired Neural Schrödinger Bridge for Ultra-Low Field MRI Enhancement",
@@ -200,7 +200,6 @@ export const publications: Publication[] = [
       "Combines distribution matching distillation with an unpaired neural Schrödinger bridge to translate ultra-low-field brain MRI toward high-field quality.",
     tags: ["Schrödinger Bridge", "Distillation", "Unpaired Translation"],
     links: [{ label: "arXiv", href: "https://arxiv.org/abs/2603.03769" }],
-    featured: true,
   },
   {
     title: "Ultra-Low-Field Brain MRI Enhancement using Resfusion and Residual Artifact Suppression Network",
@@ -214,7 +213,6 @@ export const publications: Publication[] = [
     summary:
       "A residual diffusion pipeline with an artifact-suppression network for the MICCAI ultra-low-field enhancement challenge.",
     tags: ["Diffusion", "MRI", "Challenge"],
-    featured: true,
   },
   {
     title: "Performance Analysis of Kubernetes Traffic Scheduling Algorithms in Homogeneous and Heterogeneous Environments",
