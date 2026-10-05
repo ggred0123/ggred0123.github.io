@@ -75,8 +75,7 @@ function TimelineItem({ e }: { e: Entry }) {
 }
 
 export default function Home() {
-  // Selected papers are simply the top of the list, so reordering carries over.
-  const featured = publications.slice(0, 4);
+  const featured = publications.filter((p) => p.featured);
   const featuredProjects = projects.filter((p) => p.featured);
 
   return (

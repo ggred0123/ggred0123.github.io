@@ -124,6 +124,8 @@ export type Publication = {
   summary: string;
   tags: string[];
   links?: { label: string; href: string }[];
+  /** Shown in the Selected papers section on the homepage. */
+  featured?: boolean;
 };
 
 /** Author name that gets bolded in the list. */
@@ -146,6 +148,36 @@ export const publications: Publication[] = [
       { label: "arXiv", href: "https://arxiv.org/abs/2609.33172" },
       { label: "Project page", href: "https://methoder00.github.io/DPP/" },
     ],
+    featured: true,
+  },
+  {
+    title: "FastOPD: On-Policy Distillation for Lightweight VLA Deployment",
+    figure: { src: "/paper/fastopd.webp", width: 480, height: 158 },
+    authors: ["Yoojin Oh", "Jeongsol Kim", "Yeonwoo Seo", "Jangho Park", "Seonghyun Jin", "Sunwoo Park", "Youngmin Kim", "Youngjun Jun", "Kyumin Choi", "Jong Chul Ye"],
+    venue: "arXiv preprint (under review)",
+    venueShort: "arXiv 2026",
+    year: "2026",
+    area: "Robotics",
+    summary:
+      "A foundation-to-lightweight VLA framework: it adapts a flow map for single-state teacher supervision and pairs it with a self-consistency objective, distilling a large VLA into a compact student that provably recovers the teacher's distribution.",
+    tags: ["VLA", "On-Policy Distillation", "Flow Maps"],
+    links: [
+      { label: "arXiv", href: "https://arxiv.org/abs/2610.02832" },
+      { label: "Project page", href: "https://fastopd.github.io/" },
+    ],
+  },
+  {
+    title: "DriftOPD: Sequence-Level Reverse-KL Distillation for One-Step VLA Policies",
+    figure: { src: "/paper/driftopd.webp", width: 480, height: 172 },
+    authors: ["Youngjun Jun", "Kyumin Choi", "Youngmin Kim", "Seonghyun Jin", "Sunwoo Park", "Jangho Park", "Jong Chul Ye"],
+    venue: "arXiv preprint (under review)",
+    venueShort: "arXiv 2026",
+    year: "2026",
+    area: "Robotics",
+    summary:
+      "Teacher-free, rollout-free sequence-level distillation: the sequence-level reverse KL splits into a chunk-level term and a future-potential term that carries the long-horizon effect of the current action, and a one-step drifting objective optimizes both.",
+    tags: ["VLA", "Sequence-Level Distillation", "Reverse KL"],
+    links: [{ label: "arXiv", href: "https://arxiv.org/abs/2610.00317" }],
   },
   {
     title: "Don't Throw Away the Tail: Action Upcycling for Policy Acceleration",
@@ -189,6 +221,7 @@ export const publications: Publication[] = [
       { label: "arXiv", href: "https://arxiv.org/abs/2605.12938" },
       { label: "ECCV Workshop", href: "https://eccv2026-3d-world-models.github.io" },
     ],
+    featured: true,
   },
   {
     title: "DMD-augmented Unpaired Neural Schrödinger Bridge for Ultra-Low Field MRI Enhancement",
