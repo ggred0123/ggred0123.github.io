@@ -102,6 +102,7 @@ export const highlights: Highlight[] = [
 export type NewsItem = { date: string; body: string };
 
 export const news: NewsItem[] = [
+  { date: "Oct. 2026", body: "Two more preprints are on arXiv, both under review: FastOPD, an on-policy distillation framework for lightweight VLA deployment, and DriftOPD, sequence-level reverse-KL distillation for one-step VLA policies." },
   { date: "Sep. 2026", body: "Three new preprints are on arXiv, all under review: Dynamic Predictive Planning for dynamic manipulation, Action Upcycling for policy acceleration, and Adjoint Guidance Flow for VLA critic guidance." },
   { date: "Sep. 2026", body: "CRePE was accepted as a poster at NeurIPS 2026." },
   { date: "Sep. 2026", body: "Starting my M.S. at the Kim Jaechul Graduate School of AI, KAIST, joining BISPL under Prof. Jong Chul Ye." },
