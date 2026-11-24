@@ -1,13 +1,10 @@
 import Link from "next/link";
 import {
   profile,
-  pillars,
   news,
   publications,
   education,
   experience,
-  projects,
-  skills,
   type Entry,
 } from "@/data/profile";
 import Authors from "@/components/Authors";
@@ -76,7 +73,6 @@ function TimelineItem({ e }: { e: Entry }) {
 
 export default function Home() {
   const featured = publications.filter((p) => p.featured);
-  const featuredProjects = projects.filter((p) => p.featured);
 
   return (
     <>
@@ -138,43 +134,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Background ───────────────────────────────────────── */}
-      <section className="section section-dark" id="background">
-        <div className="container">
-          <SectionHead no="01" kicker="background" title="Where I come from, and what I care about." />
-          <div className="background-grid">
-            <div className="bio">
-              {profile.bio.map((p) => (
-                <p key={p}>{p}</p>
-              ))}
-              <dl className="skills mono">
-                {skills.map((s) => (
-                  <div key={s.label}>
-                    <dt>{s.label}</dt>
-                    <dd>{s.items}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-            <ol className="pillars">
-              {pillars.map((p, i) => (
-                <li key={p.title}>
-                  <Corners />
-                  <span className="mono pillar-no">{String(i + 1).padStart(2, "0")}</span>
-                  <h3>{p.title}</h3>
-                  <p>{p.body}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </section>
-
       {/* ── Research ─────────────────────────────────────────── */}
       <section className="section" id="research">
         <div className="container">
           <SectionHead
-            no="02"
+            no="01"
             kicker="research"
             title="Selected papers"
             aside={
@@ -221,7 +185,7 @@ export default function Home() {
       {/* ── Timeline ─────────────────────────────────────────── */}
       <section className="section section-tint" id="timeline">
         <div className="container timeline-grid">
-          <SectionHead no="03" kicker="timeline" title={<>Education &amp; experience</>} />
+          <SectionHead no="02" kicker="timeline" title={<>Education &amp; experience</>} />
           <div>
             <h3 className="tl-group mono">education</h3>
             <ol className="tl">
@@ -239,48 +203,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Projects ─────────────────────────────────────────── */}
-      <section className="section" id="projects">
-        <div className="container">
-          <SectionHead
-            no="04"
-            kicker="projects"
-            title="Things I've built"
-            aside={
-              <Link className="text-link mono" href="/projects/">
-                all projects →
-              </Link>
-            }
-          />
-          <div className="project-bento">
-            {featuredProjects.map((p) => (
-              <article className="project-tile" key={p.title}>
-                <Corners />
-                <div className="project-tile-top mono">
-                  <span className="tag">{p.area}</span>
-                  <span className="muted">{p.period}</span>
-                </div>
-                <h3>{p.title}</h3>
-                <p>{p.body}</p>
-                <div className="project-tile-foot mono">
-                  <span className="muted">{p.org}</span>
-                  {p.link && (
-                    <a className="text-link" href={p.link.href} target="_blank" rel="noreferrer">
-                      {p.link.label.toLowerCase()} ↗
-                    </a>
-                  )}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Get in touch ─────────────────────────────────────── */}
       <section className="section section-dark contact" id="contact">
         <div className="hero-floor hero-floor-flip" aria-hidden />
         <div className="container contact-inner">
-          <p className="kicker mono">05 — get in touch</p>
+          <p className="kicker mono">03 — get in touch</p>
           <h2>
             Let&apos;s talk about 3D vision,
             <br />

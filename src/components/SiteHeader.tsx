@@ -6,10 +6,8 @@ import { usePathname } from "next/navigation";
 import { profile } from "@/data/profile";
 
 const NAV: [string, string][] = [
-  ["Background", "/#background"],
   ["Research", "/#research"],
   ["Timeline", "/#timeline"],
-  ["Projects", "/#projects"],
   ["All papers", "/publications/"],
 ];
 

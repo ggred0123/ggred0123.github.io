@@ -29,10 +29,9 @@ export const profile = {
   summary:
     "Building geometry-aware visual representations and generative models for spatial perception, interaction, and medical imaging.",
   heroText:
-    "I am an M.S. student at KAIST AI (BISPL) advised by Prof. Jong Chul Ye. I work on 3D vision and generative modeling — camera-controlled video generation, diffusion-based image enhancement, and vision-language-action models — with an eye toward robotics and embodied AI.",
+    "I work on 3D vision and generative models for robotics: camera-controlled video generation, geometry-aware encodings, and vision-language-action policies.",
   bio: [
-    "I am a first-year M.S. student at the Kim Jaechul Graduate School of AI, KAIST, advised by Prof. Jong Chul Ye at BISPL. I received my B.S. in Computer Science and Engineering from Korea University in August 2026, graduating early in 3.5 years.",
-    "Before joining BISPL full-time, I interned there for over a year working on ultra-low-field MRI enhancement and camera-controlled video generation, and earlier studied Kubernetes scheduling at the Distributed and Cloud Computing Lab at Korea University.",
+    "Before starting my M.S., I spent a year as a research intern at BISPL and earned my B.S. in Computer Science and Engineering from Korea University in 3.5 years.",
   ],
   interests: [
     "3D Vision",
@@ -54,19 +53,19 @@ export const stats = [
 export const pillars = [
   {
     title: "3D Vision & World Models",
-    body: "Geometry-aware representations and camera-controlled video generation as a step toward world action models.",
+    body: "Geometry-aware encodings and camera-controlled video generation.",
   },
   {
     title: "Robotics & VLA",
-    body: "Vision-language-action policies and simulation (MuJoCo, Isaac Sim, LIBERO) for embodied agents.",
+    body: "VLA policies, distillation, and world-action models.",
   },
   {
     title: "Diffusion & Generative Modeling",
-    body: "Distribution matching, Schrödinger bridges, and diffusion models for image and video synthesis.",
+    body: "Distribution matching, Schrödinger bridges, and flow models.",
   },
   {
     title: "Medical Imaging",
-    body: "Ultra-low-field MRI enhancement and medical foundation models that work under real scanner constraints.",
+    body: "Ultra-low-field MRI enhancement.",
   },
 ];
 
@@ -102,15 +101,12 @@ export const highlights: Highlight[] = [
 export type NewsItem = { date: string; body: string };
 
 export const news: NewsItem[] = [
-  { date: "Oct. 2026", body: "Two more preprints are on arXiv, both under review: FastOPD, an on-policy distillation framework for lightweight VLA deployment, and DriftOPD, sequence-level reverse-KL distillation for one-step VLA policies." },
-  { date: "Sep. 2026", body: "Three new preprints are on arXiv, all under review: Dynamic Predictive Planning for dynamic manipulation, Action Upcycling for policy acceleration, and Adjoint Guidance Flow for VLA critic guidance." },
-  { date: "Sep. 2026", body: "CRePE was accepted as a poster at NeurIPS 2026." },
-  { date: "Sep. 2026", body: "Starting my M.S. at the Kim Jaechul Graduate School of AI, KAIST, joining BISPL under Prof. Jong Chul Ye." },
-  { date: "Aug. 2026", body: "CRePE was accepted to the ECCV 2026 Workshop on 3D in the Era of World Models, in Malmö this September." },
-  { date: "Aug. 2026", body: "Received my B.S. in Computer Science and Engineering from Korea University — early graduation in 3.5 years." },
-  { date: "2026", body: "Preprint on DMD-augmented unpaired neural Schrödinger bridges for ultra-low-field MRI enhancement is on arXiv." },
-  { date: "2026", body: "Our ultra-low-field brain MRI enhancement method was presented at the MICCAI ULF-EnC Challenge Workshop." },
-  { date: "Jan. 2025", body: "Received the Academic Excellence Award from Korea University." },
+  { date: "Nov. 2026", body: "GALILEO is on arXiv." },
+  { date: "Oct. 2026", body: "Two VLA distillation preprints on arXiv: FastOPD and DriftOPD." },
+  { date: "Sep. 2026", body: "Three preprints on arXiv: DPP, Action Upcycling, and Adjoint Guidance Flow." },
+  { date: "Sep. 2026", body: "CRePE accepted as a poster at NeurIPS 2026." },
+  { date: "Sep. 2026", body: "Started my M.S. at KAIST AI (BISPL)." },
+  { date: "Aug. 2026", body: "B.S. from Korea University, early graduation." },
 ];
 
 export type Publication = {
@@ -134,6 +130,42 @@ export const ME = "Youngmin Kim";
 
 export const publications: Publication[] = [
   {
+    title: "CRePE: Curved Ray Expectation Positional Encoding for Unified-Camera-Controlled Video Generation",
+    figure: { src: "/paper/crepe.webp", width: 480, height: 308 },
+    authors: ["Seonghyun Jin", "Youngmin Kim", "Sunwoo Park", "Jong Chul Ye"],
+    equalContribution: ["Seonghyun Jin", "Youngmin Kim", "Sunwoo Park"],
+    venue: "NeurIPS 2026 (Poster)",
+    venueShort: "NeurIPS 2026",
+    year: "2026",
+    area: "Video Generation",
+    summary:
+      "Positional encoding over curved rays, so one video diffusion model follows pinhole, fisheye and panoramic cameras.",
+    tags: ["Camera Control", "Positional Encoding", "World Models"],
+    links: [
+      { label: "arXiv", href: "https://arxiv.org/abs/2605.12938" },
+      { label: "ECCV Workshop", href: "https://eccv2026-3d-world-models.github.io" },
+    ],
+    featured: true,
+  },
+  {
+    title: "GALILEO: Geometric RoPE with Galilean Key Transport for Dynamic Scenes",
+    figure: { src: "/paper/galileo.webp", width: 480, height: 249 },
+    authors: ["Youngmin Kim", "Seonghyun Jin", "Jong Chul Ye"],
+    equalContribution: ["Youngmin Kim", "Seonghyun Jin"],
+    venue: "arXiv preprint",
+    venueShort: "arXiv 2026",
+    year: "2026",
+    area: "3D Vision",
+    summary:
+      "Extends geometric RoPE to moving scenes by transporting each key's 3D position to the query time along its estimated velocity.",
+    tags: ["Positional Encoding", "Dynamic Scenes", "View Synthesis"],
+    links: [
+      { label: "arXiv", href: "https://arxiv.org/abs/2611.29293" },
+      { label: "Project page", href: "https://bispl-wm.github.io/GALILEO/" },
+    ],
+    featured: true,
+  },
+  {
     title: "Dynamic Manipulation with World-Action Models via Counterfactual Planning",
     figure: { src: "/paper/dynamic.webp", width: 480, height: 266 },
     authors: ["Sunwoo Park", "Wonbin Lee", "Seonghyun Jin", "Youngmin Kim", "Jangho Park", "Jong Chul Ye"],
@@ -143,7 +175,7 @@ export const publications: Publication[] = [
     year: "2026",
     area: "Robotics",
     summary:
-      "Dynamic Predictive Planning treats manipulation of moving targets as counterfactual planning: the world-action model's own rollout estimates when an interaction will happen and where the target will be, and a counterfactual observation lets the policy invoke a skill it already has instead of improvising a recovery. Runs in real time on a single consumer GPU with no training on dynamic data.",
+      "Handles moving targets by counterfactual planning with a world-action model, reusing existing skills in real time on one consumer GPU.",
     tags: ["World-Action Models", "Dynamic Manipulation", "Counterfactual Planning"],
     links: [
       { label: "arXiv", href: "https://arxiv.org/abs/2609.33172" },
@@ -160,7 +192,7 @@ export const publications: Publication[] = [
     year: "2026",
     area: "Robotics",
     summary:
-      "A foundation-to-lightweight VLA framework: it adapts a flow map for single-state teacher supervision and pairs it with a self-consistency objective, distilling a large VLA into a compact student that provably recovers the teacher's distribution.",
+      "On-policy distillation of a large VLA into a compact student, using flow maps and a self-consistency objective.",
     tags: ["VLA", "On-Policy Distillation", "Flow Maps"],
     links: [
       { label: "arXiv", href: "https://arxiv.org/abs/2610.02832" },
@@ -176,7 +208,7 @@ export const publications: Publication[] = [
     year: "2026",
     area: "Robotics",
     summary:
-      "Teacher-free, rollout-free sequence-level distillation: the sequence-level reverse KL splits into a chunk-level term and a future-potential term that carries the long-horizon effect of the current action, and a one-step drifting objective optimizes both.",
+      "Teacher-free, rollout-free sequence-level reverse-KL distillation for one-step VLA policies.",
     tags: ["VLA", "Sequence-Level Distillation", "Reverse KL"],
     links: [{ label: "arXiv", href: "https://arxiv.org/abs/2610.00317" }],
   },
@@ -189,7 +221,7 @@ export const publications: Publication[] = [
     year: "2026",
     area: "Robotics",
     summary:
-      "A training-free way to stretch a chunked policy's execution horizon by reusing the actions it would otherwise discard, extending it only while action velocity stays smooth. Cuts policy calls by 1.2-1.7x with no loss in success rate across several VLAs and a world-action model.",
+      "Training-free reuse of discarded action-chunk tails, cutting policy calls by 1.2–1.7× with no loss in success rate.",
     tags: ["VLA", "Policy Acceleration", "Action Chunking"],
     links: [{ label: "arXiv", href: "https://arxiv.org/abs/2609.34911" }],
   },
@@ -202,27 +234,9 @@ export const publications: Publication[] = [
     year: "2026",
     area: "Robotics",
     summary:
-      "Casts critic-guided flow generation as optimal control and regresses a lightweight guidance network onto the resulting costate, so a frozen VLA gains trajectory-aware critic guidance at one extra forward pass per step - 3.6x faster than QGF with 7x fewer parameters.",
+      "Amortized critic guidance for frozen VLAs via optimal control: 3.6× faster than QGF with 7× fewer parameters.",
     tags: ["VLA", "Flow Models", "Critic Guidance"],
     links: [{ label: "arXiv", href: "https://arxiv.org/abs/2609.34944" }],
-  },
-  {
-    title: "CRePE: Curved Ray Expectation Positional Encoding for Unified-Camera-Controlled Video Generation",
-    figure: { src: "/paper/crepe.webp", width: 480, height: 308 },
-    authors: ["Seonghyun Jin", "Youngmin Kim", "Sunwoo Park", "Jong Chul Ye"],
-    equalContribution: ["Seonghyun Jin", "Youngmin Kim", "Sunwoo Park"],
-    venue: "NeurIPS 2026 (Poster)",
-    venueShort: "NeurIPS 2026",
-    year: "2026",
-    area: "Video Generation",
-    summary:
-      "A positional encoding that models curved rays so a single video diffusion model can be controlled by pinhole, fisheye and panoramic cameras alike. An earlier version appeared at the ECCV 2026 Workshop on 3D in the Era of World Models.",
-    tags: ["Camera Control", "Positional Encoding", "World Models"],
-    links: [
-      { label: "arXiv", href: "https://arxiv.org/abs/2605.12938" },
-      { label: "ECCV Workshop", href: "https://eccv2026-3d-world-models.github.io" },
-    ],
-    featured: true,
   },
   {
     title: "DMD-augmented Unpaired Neural Schrödinger Bridge for Ultra-Low Field MRI Enhancement",
@@ -234,7 +248,7 @@ export const publications: Publication[] = [
     year: "2026",
     area: "Medical Imaging",
     summary:
-      "Combines distribution matching distillation with an unpaired neural Schrödinger bridge to translate ultra-low-field brain MRI toward high-field quality.",
+      "Distribution matching distillation plus an unpaired Schrödinger bridge for ultra-low-field brain MRI enhancement.",
     tags: ["Schrödinger Bridge", "Distillation", "Unpaired Translation"],
     links: [{ label: "arXiv", href: "https://arxiv.org/abs/2603.03769" }],
   },
@@ -248,20 +262,8 @@ export const publications: Publication[] = [
     year: "2026",
     area: "Medical Imaging",
     summary:
-      "A residual diffusion pipeline with an artifact-suppression network for the MICCAI ultra-low-field enhancement challenge.",
+      "Residual diffusion with an artifact-suppression network for the MICCAI ULF-EnC challenge.",
     tags: ["Diffusion", "MRI", "Challenge"],
-  },
-  {
-    title: "Performance Analysis of Kubernetes Traffic Scheduling Algorithms in Homogeneous and Heterogeneous Environments",
-    figure: { src: "/paper/kuber.webp", width: 480, height: 351 },
-    authors: ["Youngmin Kim", "Hogeon Park", "Heonchang Yu"],
-    venue: "Korea Computer Congress (KCC) 2025",
-    venueShort: "KCC 2025",
-    year: "2025",
-    area: "Systems",
-    summary:
-      "Measures how Kubernetes traffic-scheduling algorithms behave across homogeneous and heterogeneous clusters.",
-    tags: ["Kubernetes", "Scheduling", "Benchmark"],
   },
   {
     title:
@@ -272,8 +274,20 @@ export const publications: Publication[] = [
     year: "2025",
     area: "Vision-Language",
     summary:
-      "Prompt-level adaptation and knowledge-driven fine-tuning for multimodal RAG question answering in the Meta CRAG-MM challenge.",
+      "Prompt-level adaptation and knowledge-driven fine-tuning for multimodal RAG question answering.",
     tags: ["VQA", "Multimodal RAG", "Challenge"],
+  },
+  {
+    title: "Performance Analysis of Kubernetes Traffic Scheduling Algorithms in Homogeneous and Heterogeneous Environments",
+    figure: { src: "/paper/kuber.webp", width: 480, height: 351 },
+    authors: ["Youngmin Kim", "Hogeon Park", "Heonchang Yu"],
+    venue: "Korea Computer Congress (KCC) 2025",
+    venueShort: "KCC 2025",
+    year: "2025",
+    area: "Systems",
+    summary:
+      "Benchmarks Kubernetes traffic schedulers on homogeneous and heterogeneous clusters.",
+    tags: ["Kubernetes", "Scheduling", "Benchmark"],
   },
 ];
 
@@ -307,6 +321,14 @@ export const education: Entry[] = [
 ];
 
 export const experience: Entry[] = [
+  {
+    period: "Nov. 2026 – Present",
+    title: "NAVER AI Lab · Research Intern",
+    org: "Advisor: Jungho Lee",
+    location: "Seongnam, Korea",
+    chip: "Research",
+    bullets: ["World model."],
+  },
   {
     period: "Sep. 2026 – Present",
     title: "BISPL, KAIST · Graduate Researcher",
@@ -349,7 +371,7 @@ export const projects: Project[] = [
     title: "DPP — Dynamic Manipulation with World-Action Models",
     org: "BISPL, KAIST",
     area: "Robotics",
-    body: "Counterfactual planning for moving targets: the world-action model's own rollout predicts when contact happens and where the target will be, so the policy reuses a skill it already has. Real time on one consumer GPU.",
+    body: "Counterfactual planning with a world-action model for manipulating moving targets.",
     link: { label: "Project page", href: "https://methoder00.github.io/DPP/" },
     featured: true,
   },
@@ -358,7 +380,7 @@ export const projects: Project[] = [
     title: "CRePE — Unified-Camera-Controlled Video Generation",
     org: "BISPL, KAIST",
     area: "Video Generation",
-    body: "Curved Ray Expectation Positional Encoding so one video model follows pinhole, fisheye and panoramic camera trajectories.",
+    body: "One video model that follows pinhole, fisheye and panoramic camera paths.",
     link: { label: "Paper", href: "https://arxiv.org/abs/2605.12938" },
     featured: true,
   },
@@ -367,7 +389,7 @@ export const projects: Project[] = [
     title: "ULF to High-field MRI Enhancement",
     org: "BISPL, KAIST",
     area: "Medical Imaging",
-    body: "Diffusion, residual-artifact suppression and unpaired Schrödinger-bridge models that lift 64 mT scans toward 3 T quality.",
+    body: "Diffusion and Schrödinger-bridge models that lift 64 mT scans toward 3 T quality.",
     link: { label: "Preprint", href: "https://arxiv.org/abs/2603.03769" },
     featured: true,
   },
@@ -376,7 +398,7 @@ export const projects: Project[] = [
     title: "Medical Foundational Model",
     org: "BISPL, KAIST",
     area: "Foundation Models",
-    body: "Large-scale pretraining and adaptation of a foundation model for medical imaging tasks.",
+    body: "Pretraining and adapting a foundation model for medical imaging.",
     featured: true,
   },
   {
