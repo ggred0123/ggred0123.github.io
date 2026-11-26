@@ -101,6 +101,7 @@ export const highlights: Highlight[] = [
 export type NewsItem = { date: string; body: string };
 
 export const news: NewsItem[] = [
+  { date: "Nov. 2026", body: "Mind the Band is on arXiv." },
   { date: "Nov. 2026", body: "GALILEO is on arXiv." },
   { date: "Oct. 2026", body: "Two VLA distillation preprints on arXiv: FastOPD and DriftOPD." },
   { date: "Sep. 2026", body: "Three preprints on arXiv: DPP, Action Upcycling, and Adjoint Guidance Flow." },
@@ -148,6 +149,24 @@ export const publications: Publication[] = [
     featured: true,
   },
   {
+    title: "Mind the Band: The Hidden Frequency Variable in Geometric RoPE",
+    figure: { src: "/paper/mindband.webp", width: 480, height: 146 },
+    authors: ["Seonghyun Jin", "Youngmin Kim", "Jong Chul Ye"],
+    equalContribution: ["Seonghyun Jin", "Youngmin Kim"],
+    venue: "arXiv preprint",
+    venueShort: "arXiv 2026",
+    year: "2026",
+    area: "3D Vision",
+    summary:
+      "Shows that geometric RoPE's frequency band, a hidden default, can flip multi-view benchmark rankings, and gives guidelines for setting it.",
+    tags: ["Positional Encoding", "Multi-View Attention", "View Synthesis"],
+    links: [
+      { label: "arXiv", href: "https://arxiv.org/abs/2611.32171" },
+      { label: "Project page", href: "https://bispl-wm.github.io/MindTheBand/" },
+    ],
+    featured: true,
+  },
+  {
     title: "GALILEO: Geometric RoPE with Galilean Key Transport for Dynamic Scenes",
     figure: { src: "/paper/galileo.webp", width: 480, height: 249 },
     authors: ["Youngmin Kim", "Seonghyun Jin", "Jong Chul Ye"],
@@ -157,7 +176,7 @@ export const publications: Publication[] = [
     year: "2026",
     area: "3D Vision",
     summary:
-      "Extends geometric RoPE to moving scenes by transporting each key's 3D position to the query time along its estimated velocity.",
+      "Galilean key transport moves each key's 3D position to the query time along its velocity, so moving objects are encoded where they are, not where they were captured.",
     tags: ["Positional Encoding", "Dynamic Scenes", "View Synthesis"],
     links: [
       { label: "arXiv", href: "https://arxiv.org/abs/2611.29293" },
