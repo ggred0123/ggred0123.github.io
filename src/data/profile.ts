@@ -103,6 +103,7 @@ export type NewsItem = { date: string; body: string };
 export const news: NewsItem[] = [
   { date: "Nov. 2026", body: "Mind the Band is on arXiv." },
   { date: "Nov. 2026", body: "GALILEO is on arXiv." },
+  { date: "Nov. 2026", body: "Started a research internship at NAVER AI Lab." },
   { date: "Oct. 2026", body: "Two VLA distillation preprints on arXiv: FastOPD and DriftOPD." },
   { date: "Sep. 2026", body: "Three preprints on arXiv: DPP, Action Upcycling, and Adjoint Guidance Flow." },
   { date: "Sep. 2026", body: "CRePE accepted as a poster at NeurIPS 2026." },
